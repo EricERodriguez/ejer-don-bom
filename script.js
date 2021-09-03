@@ -72,6 +72,12 @@ class Persona{
     }
 
     }
-
-    let personaNueva = new Persona("eric", 29, 36700700, 90, 171)
-    personaNueva.sex = "M";
+    
+    function nuevaPersona() {
+        event.preventDefault();
+        let personaNueva = []
+        personaNueva = new Persona(document.getElementById("nombrePersona_id").value, Number(document.getElementById("edadPersona_id").value), Number(document.getElementById("dniPersona_id").value), Number(document.getElementById("pesoPersona_id").value), Number(document.getElementById("alturaPersona_id").value));
+        personaNueva.sex = document.getElementById("sexoPersona_id").value;
+        console.log(personaNueva)
+        console.log(personaNueva.mostrarDatos())
+    }
