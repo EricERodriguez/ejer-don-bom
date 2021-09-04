@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <div>
@@ -74,12 +76,133 @@
 
     <div>
         <h1>Reloj</h1>
+        <h3 id="dias_id"></h3>
+        <h1 id="hora_id"></h1>
         <script type="text/javascript">
             function codeAddress() {
-                alert('ok');
+                dia = new Date
+
+                diaSemana = ``
+                numeroMes= dia.getDate()
+                mes = ``
+                annon = dia.getYear()+ 1900
+
+                switch (dia.getDay()) {
+                    case 0:
+                        diaSemana = `Domingo`
+                        break;
+                    case 1:
+                        diaSemana = `Lunes`
+                        break;
+                    case 2:
+                        diaSemana = `Martes`
+                        break;
+                    case 3:
+                        diaSemana = `Miercoles`
+                        break;
+                    case 4:
+                        diaSemana = `Jueves`
+                        break;
+                    case 5:
+                        diaSemana = `Viernes`
+                        break;
+                    case 6:
+                        diaSemana = `Sabado`
+                        break;
+                    default:
+                        break;
+                }
+
+                switch (dia.getMonth()) {
+                    case 0:
+                        mes = `Enero`
+                        break;
+                    case 1:
+                        mes = `Febrero`
+                        break;
+                    case 2:
+                        mes = `Marzo`
+                        break;
+                    case 3:
+                        mes = `Abril`
+                        break;
+                    case 4:
+                        mes = `Mayo`
+                        break;
+                    case 5:
+                        mes = `Junio`
+                        break;
+                    case 6:
+                        mes = `Julio`
+                        break;
+                    case 7:
+                        mes = `Agosto`
+                        break;
+                    case 8:
+                        mes = `Septiembre`
+                        break;
+                    case 9:
+                        mes = `Octubre`
+                        break;
+                    case 10:
+                        mes = `Noviembre`
+                        break;
+                    case 11:
+                        mes = `Diciembre`
+                        break;
+                    default:
+                        break;
+                }
+
+
+                segundos = dia.getSeconds()
+                minutos = dia.getMinutes()
+                horas = dia.getHours()
+
+                if (dia.getHours()/9 >= 1) {
+                    horas = dia.getHours()
+                }else{
+                    horas = `0`+ dia.getHours()
+                }
+
+                if (dia.getMinutes()/9 >= 1) {
+                    minutos = dia.getMinutes()
+                }else{
+                    minutos = `0`+ dia.getMinutes()
+                }
+
+                if (dia.getSeconds()/9 >= 1) {
+                    segundos = dia.getSeconds()
+                }else{
+                    segundos = `0`+ dia.getSeconds()
+                }
+                document.getElementById("dias_id").innerHTML = `${diaSemana} ${numeroMes} de ${mes} del ${annon}`
+                document.getElementById("hora_id").innerHTML = `${horas}:${minutos}:${segundos} `
+
+                setTimeout('codeAddress()',1000)
             }
+            
             window.onload = codeAddress;
+
+            
             </script>
+    </div>
+
+    <div>
+        <h1>Cronometro</h1>
+
+        <div class="cronometro">
+            <div id="hms"></div>
+            <div class="boton start"></div>
+            <div class="boton stop"></div>
+            <div class="boton reiniciar"></div>
+        </div>
+    </div>
+
+
+    <div>
+        <h1>Temporizador</h1>
+        
     </div>
 </body>
 <script src="./script.js"></script>

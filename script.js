@@ -87,3 +87,161 @@ class Persona{
         personaNueva.sex = document.getElementById("sexoPersona_id").value;
         // console.log(personaNueva)
     }
+
+    /*-------------------
+    /*--------reloj---------
+    --------------------*/
+
+    // function codeAddress() {
+    //     dia = new Date
+
+    //     diaSemana = ``
+    //     numeroMes= dia.getDate()
+    //     mes = ``
+    //     annon = dia.getYear()+ 1900
+
+    //     switch (dia.getDay()) {
+    //         case 0:
+    //             diaSemana = `Domingo`
+    //             break;
+    //         case 1:
+    //             diaSemana = `Lunes`
+    //             break;
+    //         case 2:
+    //             diaSemana = `Martes`
+    //             break;
+    //         case 3:
+    //             diaSemana = `Miercoles`
+    //             break;
+    //         case 4:
+    //             diaSemana = `Jueves`
+    //             break;
+    //         case 5:
+    //             diaSemana = `Viernes`
+    //             break;
+    //         case 6:
+    //             diaSemana = `Sabado`
+    //             break;
+    //         default:
+    //             break;
+    //     }
+
+    //     switch (dia.getMonth()) {
+    //         case 0:
+    //             mes = `Enero`
+    //             break;
+    //         case 1:
+    //             mes = `Febrero`
+    //             break;
+    //         case 2:
+    //             mes = `Marzo`
+    //             break;
+    //         case 3:
+    //             mes = `Abril`
+    //             break;
+    //         case 4:
+    //             mes = `Mayo`
+    //             break;
+    //         case 5:
+    //             mes = `Junio`
+    //             break;
+    //         case 6:
+    //             mes = `Julio`
+    //             break;
+    //         case 7:
+    //             mes = `Agosto`
+    //             break;
+    //         case 8:
+    //             mes = `Septiembre`
+    //             break;
+    //         case 9:
+    //             mes = `Octubre`
+    //             break;
+    //         case 10:
+    //             mes = `Noviembre`
+    //             break;
+    //         case 11:
+    //             mes = `Diciembre`
+    //             break;
+    //         default:
+    //             break;
+    //     }
+
+
+    //     segundos = dia.getSeconds()
+    //     minutos = dia.getMinutes()
+    //     horas = dia.getHours()
+
+    //     if (dia.getHours()/9 >= 1) {
+    //         horas = dia.getHours()
+    //     }else{
+    //         horas = `0`+ dia.getHours()
+    //     }
+
+    //     if (dia.getMinutes()/9 >= 1) {
+    //         minutos = dia.getMinutes()
+    //     }else{
+    //         minutos = `0`+ dia.getMinutes()
+    //     }
+
+    //     if (dia.getSeconds()/9 >= 1) {
+    //         segundos = dia.getSeconds()
+    //     }else{
+    //         segundos = `0`+ dia.getSeconds()
+    //     }
+    //     document.getElementById("dias_id").innerHTML = `${diaSemana} ${numeroMes} de ${mes} del ${annon}`
+    //     document.getElementById("hora_id").innerHTML = `${horas}:${minutos}:${segundos} `
+
+    //     setTimeout('codeAddress()',1000)
+    // }
+    // window.onload = codeAddress;
+
+
+    /*-------------------
+    /*--------Cronometro---------
+    --------------------*/
+    
+
+    // window.onload = init;
+function init(){
+    document.querySelector(".start").addEventListener("click",cronometrar);
+    document.querySelector(".stop").addEventListener("click",parar);
+    document.querySelector(".reiniciar").addEventListener("click",reiniciar);
+    h = 0;
+    m = 0;
+    s = 0;
+    document.getElementById("hms").innerHTML="00:00:00";
+}         
+function cronometrar(){
+    escribir();
+    id = setInterval(escribir,1000);
+    document.querySelector(".start").removeEventListener("click",cronometrar);
+}
+function escribir(){
+    var hAux, mAux, sAux;
+    s++;
+    if (s>59){m++;s=0;}
+    if (m>59){h++;m=0;}
+    if (h>24){h=0;}
+
+    if (s<10){sAux="0"+s;}else{sAux=s;}
+    if (m<10){mAux="0"+m;}else{mAux=m;}
+    if (h<10){hAux="0"+h;}else{hAux=h;}
+
+    document.getElementById("hms").innerHTML = hAux + ":" + mAux + ":" + sAux; 
+}
+function parar(){
+    clearInterval(id);
+    document.querySelector(".start").addEventListener("click",cronometrar);
+
+}
+function reiniciar(){
+    clearInterval(id);
+    document.getElementById("hms").innerHTML="00:00:00";
+    h=0;m=0;s=0;
+    document.querySelector(".start").addEventListener("click",cronometrar);
+}
+
+/*-------------------
+/*--------temporizador---------
+--------------------*/
