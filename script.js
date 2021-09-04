@@ -50,34 +50,40 @@ class Persona{
 
     mostrarGeneraciones(){
         if ((new Date().getFullYear() - this.edad) < 1948 ) {
-            console.log("silent generation")
+            // console.log("silent generation")
+            document.getElementById("mostrarGeneracion_id").innerHTML= "silent generation"
         }else if ((new Date().getFullYear() - this.edad) < 1968 ) {
-            console.log("Baby Boom")
+            // console.log("Baby Boom")
+            document.getElementById("mostrarGeneracion_id").innerHTML="Baby Boom"
         }else if ((new Date().getFullYear() - this.edad) < 1980 ) {
-            console.log("Genration X")
+            // console.log("Genration X")
+            document.getElementById("mostrarGeneracion_id").innerHTML="Genration X"
         }else if ((new Date().getFullYear() - this.edad) < 1993 ) {
-            console.log("Genration Y")
+            // console.log("Genration Y")
+            document.getElementById("mostrarGeneracion_id").innerHTML="Genration Y"
         }else{
-            console.log("Genration Z")
+            // console.log("Genration Z")
+            document.getElementById("mostrarGeneracion_id").innerHTML="Genration Z"
         }
 
     }
     esMayorDeEdad(){
-        if (this.edad > 18) {
-            console.log("es mayor de edad")
+        if (this.edad >= 18) {
+            // console.log("es mayor de edad")
+            document.getElementById("esMayorDeEdad_id").innerHTML= "es mayor de edad"
         }
     }
     mostrarDatos(){
-        console.log(`${this.nombre} ${this.edad} ${this.dni} ${this.sexo} ${this.peso} ${this.altura} `)
+        // console.log(`Nombre: ${this.nombre} Edad: ${this.edad} DNI:${this.dni} Sexo: ${this.sexo} Peso: ${this.peso} Altura:${this.altura} `)
+
+        document.getElementById("mostrarDatos_id").innerHTML = `Nombre: ${this.nombre} Edad: ${this.edad} DNI:${this.dni} Sexo: ${this.sexo} Peso: ${this.peso} Altura:${this.altura}`
     }
 
     }
     
     function nuevaPersona() {
-        event.preventDefault();
-        let personaNueva = []
+        let  = []
         personaNueva = new Persona(document.getElementById("nombrePersona_id").value, Number(document.getElementById("edadPersona_id").value), Number(document.getElementById("dniPersona_id").value), Number(document.getElementById("pesoPersona_id").value), Number(document.getElementById("alturaPersona_id").value));
         personaNueva.sex = document.getElementById("sexoPersona_id").value;
-        console.log(personaNueva)
-        console.log(personaNueva.mostrarDatos())
+        // console.log(personaNueva)
     }

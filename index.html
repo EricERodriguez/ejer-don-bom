@@ -56,8 +56,30 @@
                 <label for="">año de nacimiento</label>
                 <input type="number" name="" id="annonPersona_id">
             </div>
-            <button onclick="nuevaPersona(); return false">Mostrar datos</button>
+            <button onclick="nuevaPersona(); return false">Cargar</button>
         </form>
+        <div>
+            <p id="mostrarDatos_id"></p>
+            <button onclick="personaNueva.mostrarDatos(); return false">Mostrar datos</button>
+        </div>
+        <div>
+            <p id="mostrarGeneracion_id"></p>
+            <button onclick="personaNueva.mostrarGeneraciones(); return false">Mostrar generacion</button>
+        </div>
+        <div>
+            <p id="esMayorDeEdad_id"></p>
+            <button onclick="personaNueva.esMayorDeEdad(); return false">Mayoria de edad</button>
+        </div>
+    </div>
+
+    <div>
+        <h1>Reloj</h1>
+        <script type="text/javascript">
+            function codeAddress() {
+                alert('ok');
+            }
+            window.onload = codeAddress;
+            </script>
     </div>
 </body>
 <script src="./script.js"></script>
